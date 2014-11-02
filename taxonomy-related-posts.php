@@ -9,8 +9,6 @@
      */
      class Taxonomy_Related_Posts extends WP_Widget {
 
-	
-		
         function __construct() {
           
 		$this->defaults = array(
@@ -67,23 +65,23 @@
 		<label for="<?php echo $this->get_field_id('display_taxonomy_name'); ?>"><?php _e( 'Display taxonomy name as subtitle', 'taxonomy-related-posts' ); ?></label>
 		</p>	
                
-               <p>
-               <label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
-                         <?php _e( 'Related by taxonomy' , 'taxonomy-related-posts'); ?>: <select class="widefat" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>"><?php
-                              $taxonomies = get_taxonomies( array( 'show_ui' => true ), 'objects' );
-                              foreach ( $taxonomies as $slug => $tax ): ?>
-                                   <option value="<?php echo $slug; ?>" <?php echo ( $slug == $taxonomy ) ? 'selected="selected"' : ''; ?>><?php echo $tax->labels->name; ?></option><?php
-                              endforeach; ?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
+                <?php _e( 'Related by taxonomy' , 'taxonomy-related-posts'); ?>: <select class="widefat" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>"><?php
+                        $taxonomies = get_taxonomies( array( 'show_ui' => true ), 'objects' );
+                        foreach ( $taxonomies as $slug => $tax ): ?>
+                        	<option value="<?php echo $slug; ?>" <?php echo ( $slug == $taxonomy ) ? 'selected="selected"' : ''; ?>><?php echo $tax->labels->name; ?></option><?php
+                        endforeach; ?>
                          </select>
-               </label>
-               </p>
+		</label>
+		</p>
                
 		<p>
 		<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Sorting order:', 'taxonomy-related-posts' ); ?></label> 
-			<select class="widefat" id="<?php echo $this->get_field_id( 'order' ); ?>" name="<?php echo $this->get_field_name( 'order' ); ?>">
-				<?php foreach ( $order as $option_value => $option_label ) { ?>
-					<option value="<?php echo esc_attr( $option_value ); ?>" <?php selected( $instance['order'], $option_value ); ?>><?php echo esc_html( $option_label ); ?></option>
-				<?php } ?>
+		<select class="widefat" id="<?php echo $this->get_field_id( 'order' ); ?>" name="<?php echo $this->get_field_name( 'order' ); ?>">
+			<?php foreach ( $order as $option_value => $option_label ) { ?>
+				<option value="<?php echo esc_attr( $option_value ); ?>" <?php selected( $instance['order'], $option_value ); ?>><?php echo esc_html( $option_label ); ?></option>
+			<?php } ?>
 		</select>
 		</p>
 		
@@ -94,19 +92,19 @@
                
 		<p>
 		<label for="<?php echo $this->get_field_id( 'list_type' ); ?>"><?php _e( 'List format:', 'taxonomy-related-posts' ); ?></label> 
-		 	<select class="widefat" id="<?php echo $this->get_field_id( 'list_type' ); ?>" name="<?php echo $this->get_field_name( 'list_type' ); ?>">
+		<select class="widefat" id="<?php echo $this->get_field_id( 'list_type' ); ?>" name="<?php echo $this->get_field_name( 'list_type' ); ?>">
 			<?php foreach ( $list_type as $option_value => $option_label ) { ?>
 				<option value="<?php echo esc_attr( $option_value ); ?>" <?php selected( $instance['list_type'], $option_value ); ?>><?php echo esc_html( $option_label ); ?></option>
 			<?php } ?>
-			</select>
+		</select>
 		</p>
                               
                <?php
 
-          }
+	}
 
 
-          function update( $new_instance, $old_instance ) {
+	function update( $new_instance, $old_instance ) {
 
 		$instance = $old_instance;
 		$instance['title'] = $new_instance['title'];
@@ -117,8 +115,8 @@
 		$instance['display_taxonomy_name'] = (bool)$new_instance['display_taxonomy_name'];
 		$instance['list_type'] = $new_instance['list_type'];
 		return $instance;
-
-          }
+		
+	}
 
 
 	function widget( $args, $instance ) {
@@ -196,21 +194,21 @@
 			while ( $loop->have_posts() ) {
 
 				$loop->the_post();
-			
+				
 				$output .= $post_id === get_the_ID() ? the_title( '<li>', '</li>', false ) : the_title( '<li><a href="' . get_permalink() . '">', '</a></li>', false );
 			}
-
+			
 			$output .= $closing_list_tag;	
 		}
-
+		
 		wp_reset_postdata();
             	
 		echo $output;
-        
-		// standard 	 	
-        	echo $after_widget;               
 		
-          }
+		// standard 	 	
+		echo $after_widget;               
+		
+	}
 
      }
 
