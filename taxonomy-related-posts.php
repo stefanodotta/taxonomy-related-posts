@@ -213,8 +213,8 @@
      }
 
 // register Taxonomy Related Posts widget
-function register_taxnonmy_related_posts_widget() {
+function register_taxonomy_related_posts_widget() {
     register_widget( 'Taxonomy_Related_Posts' );
 }
 
-add_action( 'widgets_init', 'register_taxnonmy_related_posts_widget' );
+add_action( 'widgets_init', 'register_taxonomy_related_posts_widget' );
