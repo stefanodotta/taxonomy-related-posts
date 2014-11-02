@@ -13,7 +13,7 @@ customize the widget: title, subtitle, taxonomy, sorting order, related posts co
 == Description ==
 
 A widget that simply gives you related posts by taxonomy. 
-Based on danielauener SSimply Related Posts plugin.
+Based on danielauener Simply Related Posts plugin.
 https://github.com/danielauener/wp-simply-related-posts
 
 **Widget settings**
