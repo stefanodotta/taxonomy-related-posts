@@ -1,6 +1,5 @@
 === Plugin Name ===
-Contributors: danielauener, stefanodotta
-Donate link: http://www.danielauener.com/
+Contributors: stefanodotta
 Tags: related posts, taxonomy, widget
 Requires at least: 3.0.1
 Tested up to: 4.0
@@ -8,21 +7,23 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A widget that simply gives you related posts by taxonomy. Four settings to
-customize the widget: title, taxonomy, related posts count, excludet terms
+A widget that simply gives you related posts by taxonomy. Six settings to
+customize the widget: title, subtitle, taxonomy, sorting order, related posts count, list format
 
 == Description ==
 
-A widget that simply gives you related posts by taxonomy. It provides four
-settings to customize every widget and there are no global settings to worry
-about.
+A widget that simply gives you related posts by taxonomy. 
+Based on danielauener SSimply Related Posts plugin.
+https://github.com/danielauener/wp-simply-related-posts
 
 **Widget settings**
 
 1. The title of the widget (default: Related Posts)
-2. The taxonomy by which terms the posts are related (default: Tags)
-3. How many related posts to show (default 5)
-4. excludet terms
+2. Option to display the taxonomy name as subtitle
+3. The taxonomy by which terms the posts are related (default: Tags)
+4. The sorting order of the post listed (ascending / descending)
+5. How many related posts to show (default is -1)
+6. List format (unordered / ordered)
 
 The widget is visible only when `is_single()` is true, it doesn't shows up on
 archives, search templates, etc.
@@ -37,14 +38,7 @@ archives, search templates, etc.
 
 == Frequently Asked Questions ==
 
-There is a github-repository on: [http://github.com/danielauener/wp-simply-related-posts](http://github.com/danielauener/wp-simply-related-posts)
-
-Q. How to add thumbnail images to the related posts list
-A. You can add the 'simply_related_posts_title' filter, like
-`add_filter( 'simply_related_posts_title', 'my_related_posts', 10, 2);`
-The first argument is a post-object for the related post, the second argument
-is the widget instance.
-
+There is a github-repository on: [https://github.com/stefanodotta/taxonomy-related-posts/](https://github.com/stefanodotta/taxonomy-related-posts/)
 
 == Screenshots ==
 
