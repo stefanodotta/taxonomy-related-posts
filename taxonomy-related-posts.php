@@ -3,7 +3,7 @@
      Plugin Name: Taxonomy Related Posts
      Plugin URI: 
      Description: A widget that lists posts related by taxonomy.
-     Version: 1.0
+     Version: 1.1
      Author: Stefano Dotta
      Author URI: 
      */
@@ -56,9 +56,9 @@
                ?>
                
 		<p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>">
-                <?php _e( 'Title:' , 'taxonomy-related-posts'); ?><input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo attribute_escape( $title ); ?>" />
-		</label>
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' , 'taxonomy-related-posts'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo attribute_escape( $title ); ?>" />
+
 		</p>
                
 		<p>
@@ -67,25 +67,23 @@
 		</p>	
                               
 		<p>
-		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
-                <?php _e( 'Taxonomy to use:' , 'taxonomy-related-posts'); ?><select class="widefat" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>"><?php
+		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>"><?php _e( 'Taxonomy to use:' , 'taxonomy-related-posts'); ?></label>
+                <select class="widefat" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>"><?php
                         $taxonomies = get_taxonomies( array( 'show_ui' => true ), 'objects' );
                         foreach ( $taxonomies as $slug => $tax ): ?>
                         	<option value="<?php echo $slug; ?>" <?php echo ( $slug == $taxonomy ) ? 'selected="selected"' : ''; ?>><?php echo $tax->labels->name; ?></option><?php
                         endforeach; ?>
-                         </select>
-		</label>
+		</select>
 		</p>
                
 		<p>
-		<label for="<?php echo $this->get_field_id( 'post_type' ); ?>">
-		<?php _e( 'Post type to use:' , 'taxonomy-related-posts'); ?><select class="widefat" id="<?php echo $this->get_field_id( 'post_type' ); ?>" name="<?php echo $this->get_field_name( 'post_type' ); ?>"><?php
+		<label for="<?php echo $this->get_field_id( 'post_type' ); ?>"><?php _e( 'Post type to use:' , 'taxonomy-related-posts'); ?></label>
+		<select class="widefat" id="<?php echo $this->get_field_id( 'post_type' ); ?>" name="<?php echo $this->get_field_name( 'post_type' ); ?>"><?php	
 			$post_types = get_post_types( array( 'show_ui' => true, 'public' => true ), 'objects', 'and' );
 			foreach ( $post_types as $slug => $pt ): ?>
 				<option value="<?php echo $slug; ?>" <?php echo ( $slug == $post_type ) ? 'selected="selected"' : ''; ?>><?php echo $pt->labels->name; ?></option><?php
 			endforeach; ?>
-			</select>
-		</label>
+		</select>
 		</p>
                
 		<p>
@@ -107,10 +105,9 @@
 		</p>
 
 		<p>
-                <label for="<?php echo $this->get_field_id( 'related_count' ); ?>"></label> 
-		<?php _e( 'Number of posts to show (use -1 to show all posts):' , 'taxonomy-related-posts'); ?><input class="widefat" id="<?php echo $this->get_field_id( 'related_count' ); ?>" name="		<?php echo $this->get_field_name( 'related_count' ); ?>" type="text" value="<?php echo attribute_escape( $related_count ); ?>" />
+                <label for="<?php echo $this->get_field_id( 'related_count' ); ?>"><?php _e( 'Number of posts to show (use -1 to show all posts):' , 'taxonomy-related-posts'); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'related_count' ); ?>" name="	<?php echo $this->get_field_name( 'related_count' ); ?>" type="text" value="<?php echo attribute_escape( $related_count ); ?>" />
 		</p>
-
                               
                <?php
 
@@ -153,13 +150,13 @@
 		$closing_list_tag = '</ul>';
 		$output = '';
 		$post_id = 0;
-		            	
+
 		$terms = get_the_terms( get_the_ID(), $taxonomy );
-		$terms = reset( $terms );			
-		
 		if ( empty( $terms ) ) {
 			return;
 		}
+
+		$terms = reset( $terms );			
 			
 		$post_id = get_the_ID();
 		if ( empty( $post_id ) ) {
