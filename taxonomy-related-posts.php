@@ -106,7 +106,7 @@
 
 		<p>
                 <label for="<?php echo $this->get_field_id( 'related_count' ); ?>"><?php _e( 'Number of posts to show (use -1 to show all posts):' , 'taxonomy-related-posts'); ?></label> 
-		<input class="widefat" id="<?php echo $this->get_field_id( 'related_count' ); ?>" name="	<?php echo $this->get_field_name( 'related_count' ); ?>" type="text" value="<?php echo attribute_escape( $related_count ); ?>" />
+		<input class="widefat" id="<?php echo $this->get_field_id( 'related_count' ); ?>" name="<?php echo $this->get_field_name( 'related_count' ); ?>" type="text" value="<?php echo attribute_escape( $related_count ); ?>" />
 		</p>
                               
                <?php
