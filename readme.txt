@@ -3,7 +3,7 @@ Contributors: stefanodotta
 Tags: related posts, taxonomy, widget
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,14 @@ https://github.com/stefanodotta/taxonomy-related-posts/
 
 == Changelog ==
 
-= 1.0 =
-* Version 1.0 done
+= v1.1 = 2014-11-02
+Moved the condition to verify if there are terms of the taxonomy
+attached to the post before the reset of the terms.
+
+Done some housekeeping in the form funtion (labels)
+
+= v1.0 = 2014-11-01
+Version 1.0 done
+
+
 
